@@ -163,3 +163,16 @@ if (ENABLE_WXWIDGETS)
 	# PUBLIC because wx/app.h is included in CemuApp.h
 	target_link_libraries(CemuGui PUBLIC wx::base wx::core wx::gl wx::propgrid wx::xrc)
 endif()
+
+set(ALL_SRC_WX ${SRC_WX})
+
+list(APPEND ALL_SRC_WX ${CMAKE_CURRENT_SOURCE_DIR}/macsupport.mm)
+list(APPEND ALL_SRC_WX ${CMAKE_CURRENT_SOURCE_DIR}/widgets/dpi-support-mac.mm)
+list(APPEND ALL_SRC_WX ${CMAKE_CURRENT_SOURCE_DIR}/widgets/dpi-support.cpp)
+
+if(APPLE)
+    list(APPEND SRC_WX macsupport.mm)
+    list(APPEND SRC_WX widgets/dpi-support-mac.mm)
+else()
+    list(APPEND SRC_WX widgets/dpi-support.cpp)
+endif()
