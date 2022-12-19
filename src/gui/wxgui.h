@@ -32,6 +32,7 @@
 #include <wx/wupdlock.h>
 #include <wx/infobar.h>
 #include <wx/splitter.h>
+#include "gui/dpi-support.h"
 
 extern bool g_inputConfigWindowHasFocus;
 
